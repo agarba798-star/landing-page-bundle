@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightline Dental — Family & Cosmetic Dentistry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mint:#e4f5ef;
+    --teal:#2f8f7a;
+    --teal-dark:#1f6656;
+    --navy:#16323a;
+    --cream:#fbfaf7;
+    --line:rgba(22,50,58,0.1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background:var(--cream);
+    color:var(--navy);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Sora', 'Segoe UI', sans-serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    color:var(--navy);
+  }
+  a{color:inherit;}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,250,247,0.95);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1140px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px;
+  }
+  .brand{ font-family:'Sora', sans-serif; font-size:20px; font-weight:800; color:var(--navy); }
+  .brand .accent{ color:var(--teal); }
+  .nav-cta{
+    background:var(--teal); color:#fff;
+    padding:11px 22px; border-radius:100px;
+    font-size:14px; font-weight:600; text-decoration:none;
+  }
+  .nav-cta:hover{ background:var(--teal-dark); }
+
+  .hero{
+    max-width:1140px; margin:0 auto;
+    padding:64px 24px 56px;
+    display:grid; grid-template-columns:1.1fr 0.9fr;
+    gap:48px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--mint); color:var(--teal-dark);
+    padding:8px 16px; border-radius:100px;
+    font-size:13px; font-weight:600; margin-bottom:20px;
+  }
+  .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--teal); display:inline-block; }
+  .hero h1{
+    font-size:clamp(32px, 4.5vw, 46px);
+    line-height:1.15;
+    margin-bottom:18px;
+  }
+  .hero p{
+    font-size:16px; color:rgba(22,50,58,0.7);
+    max-width:44ch; margin-bottom:28px;
+  }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn-primary{
+    background:var(--teal); color:#fff;
+    padding:14px 26px; border-radius:100px;
+    font-size:15px; font-weight:600; text-decoration:none;
+    box-shadow:0 8px 20px rgba(47,143,122,0.25);
+  }
+  .btn-primary:hover{ background:var(--teal-dark); }
+  .btn-ghost{
+    border:1.5px solid var(--line);
+    padding:14px 26px; border-radius:100px;
+    font-size:15px; font-weight:600; text-decoration:none;
+    color:var(--navy); background:#fff;
+  }
+  .btn-ghost:hover{ border-color:var(--teal); }
+
+  /* Booking card - signature element */
+  .booking-card{
+    background:#fff; border-radius:20px;
+    padding:28px;
+    box-shadow:0 20px 50px rgba(22,50,58,0.08);
+    border:1px solid var(--line);
+  }
+  .booking-card .next-slot{
+    display:flex; align-items:center; gap:12px;
+    background:var(--mint); border-radius:14px;
+    padding:16px; margin-bottom:20px;
+  }
+  .next-slot .pulse{
+    width:10px; height:10px; border-radius:50%; background:var(--teal);
+    flex-shrink:0;
+    animation:pulse 2s ease infinite;
+  }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.4; } }
+  @media (prefers-reduced-motion: reduce){ .pulse{ animation:none; } }
+  .next-slot .txt strong{ display:block; font-size:14px; color:var(--navy); }
+  .next-slot .txt span{ font-size:13px; color:rgba(22,50,58,0.6); }
+  .week-grid{
+    display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:8px;
+  }
+  .day-cell{
+    text-align:center; padding:10px 0; border-radius:10px;
+    font-size:12px; color:rgba(22,50,58,0.4);
+  }
+  .day-cell.label{ font-weight:600; color:rgba(22,50,58,0.5); padding-bottom:4px; }
+  .day-cell.available{ background:var(--mint); color:var(--teal-dark); font-weight:700; }
+  .day-cell.today{ border:1.5px solid var(--teal); }
+
+  .divider{ max-width:1140px; margin:0 auto; padding:0 24px; }
+  .divider hr{ border:none; border-top:1px solid var(--line); }
+
+  /* Trust strip */
+  .trust{
+    max-width:1140px; margin:0 auto;
+    padding:48px 24px;
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:24px; text-align:center;
+  }
+  .trust-item .num{ font-family:'Sora', sans-serif; font-size:30px; font-weight:800; color:var(--teal); }
+  .trust-item .label{ font-size:13px; color:rgba(22,50,58,0.6); margin-top:4px; }
+
+  /* Services */
+  .services{ max-width:1140px; margin:0 auto; padding:56px 24px; }
+  .section-head{ margin-bottom:32px; }
+  .section-head h2{ font-size:clamp(26px,4vw,36px); margin-bottom:8px; }
+  .section-head p{ color:rgba(22,50,58,0.65); font-size:15px; max-width:48ch; }
+  .service-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .service-card{
+    background:#fff; border:1px solid var(--line); border-radius:16px;
+    padding:26px;
+  }
+  .service-icon{
+    width:44px; height:44px; border-radius:12px;
+    background:var(--mint); color:var(--teal-dark);
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px; margin-bottom:16px;
+  }
+  .service-card h3{ font-size:17px; margin-bottom:8px; }
+  .service-card p{ font-size:14px; color:rgba(22,50,58,0.65); }
+
+  /* CTA */
+  .cta-section{
+    background:var(--navy); color:#fff;
+    margin:56px 24px 0; border-radius:24px;
+    max-width:1092px; margin-left:auto; margin-right:auto;
+    padding:64px 40px; text-align:center;
+  }
+  .cta-section h2{ color:#fff; font-size:clamp(26px,4vw,36px); margin-bottom:14px; }
+  .cta-section p{ color:rgba(255,255,255,0.72); max-width:44ch; margin:0 auto 28px; font-size:15px; }
+
+  footer{
+    margin-top:56px;
+    border-top:1px solid var(--line);
+    padding:28px 24px; text-align:center;
+    font-size:13px; color:rgba(22,50,58,0.55);
+  }
+
+  @media (max-width:860px){
+    .hero{ grid-template-columns:1fr; }
+    .trust{ grid-template-columns:1fr 1fr; }
+    .service-grid{ grid-template-columns:1fr; }
+    .cta-section{ margin:56px 16px 0; padding:48px 24px; }
+  }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">Bright<span class="accent">line</span> Dental</div>
+    <a class="nav-cta" href="#book">Book a visit</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="eyebrow"><span class="dot"></span>Accepting new patients</span>
+    <h1>Dental care that doesn't feel like a chore.</h1>
+    <p>Family and cosmetic dentistry with same-week appointments, clear pricing before you sit down, and a team that actually explains what's happening.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#book">Check available times</a>
+      <a class="btn-ghost" href="#services">See services</a>
+    </div>
+  </div>
+  <div class="booking-card">
+    <div class="next-slot">
+      <span class="pulse"></span>
+      <div class="txt">
+        <strong>Next available: Tomorrow, 2:00 PM</strong>
+        <span>With Dr. Adeyemi — Cleaning & Checkup</span>
+      </div>
+    </div>
+    <div class="week-grid">
+      <div class="day-cell label">M</div><div class="day-cell label">T</div><div class="day-cell label">W</div>
+      <div class="day-cell label">T</div><div class="day-cell label">F</div><div class="day-cell label">S</div><div class="day-cell label">S</div>
+      <div class="day-cell today">12</div><div class="day-cell available">13</div><div class="day-cell">14</div>
+      <div class="day-cell available">15</div><div class="day-cell available">16</div><div class="day-cell">17</div><div class="day-cell">18</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="trust">
+  <div class="trust-item"><div class="num">14</div><div class="label">Years in practice</div></div>
+  <div class="trust-item"><div class="num">4.9</div><div class="label">Average rating</div></div>
+  <div class="trust-item"><div class="num">6,200+</div><div class="label">Patients treated</div></div>
+  <div class="trust-item"><div class="num">Same week</div><div class="label">Appointment availability</div></div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-head">
+    <h2>Services</h2>
+    <p>Every treatment plan includes a clear cost estimate before any work begins.</p>
+  </div>
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-icon">✓</div>
+      <h3>Cleanings & Checkups</h3>
+      <p>Routine exams and cleanings, with digital X-rays reviewed with you directly.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">◐</div>
+      <h3>Cosmetic Dentistry</h3>
+      <p>Whitening, veneers, and bonding — consultation first, no pressure to upsell.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">+</div>
+      <h3>Restorative Care</h3>
+      <p>Fillings, crowns, and root canals, with sedation options for anxious patients.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="book">
+  <h2>Ready to book?</h2>
+  <p>Send your preferred day and time — confirmation comes back the same day, usually within the hour.</p>
+  <div class="hero-ctas" style="justify-content:center;">
+    <a class="btn-primary" href="https://wa.me/2340000000000" target="_blank" rel="noopener" style="box-shadow:none;">Message on WhatsApp</a>
+    <a class="btn-ghost" href="mailto:hello@brightlinedental.example" style="background:transparent; border-color:rgba(255,255,255,0.3); color:#fff;">Email instead</a>
+  </div>
+</section>
+
+<footer>
+  Brightline Dental — Family & Cosmetic Dentistry. Sample site built by [Your Name] · brightlinedental.example
+</footer>
+
+</body>
+</html>
