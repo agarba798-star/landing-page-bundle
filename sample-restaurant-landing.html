@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember & Oak — Modern Bistro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --char:#2a211c; --terracotta:#a8543a; --olive:#6b7154;
+    --cream:#f6efe6; --paper:#fbf7f1; --line:rgba(42,33,28,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ font-family:'Karla', Arial, sans-serif; background:var(--paper); color:var(--char); line-height:1.6; }
+  h1,h2,h3{ font-family:'Playfair Display', Georgia, serif; font-weight:700; }
+  a{ color:inherit; }
+  header{ position:sticky; top:0; z-index:50; background:rgba(251,247,241,0.95); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); }
+  .nav{ max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:18px 24px; }
+  .brand{ font-family:'Playfair Display', serif; font-style:italic; font-size:22px; }
+  .nav-cta{ background:var(--terracotta); color:#fff; padding:10px 20px; border-radius:2px; font-size:14px; font-weight:600; text-decoration:none; }
+  .hero{ max-width:1100px; margin:0 auto; padding:72px 24px 56px; text-align:center; }
+  .eyebrow{ font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:var(--terracotta); font-weight:600; margin-bottom:16px; display:block; }
+  .hero h1{ font-size:clamp(38px,6vw,68px); line-height:1.05; margin-bottom:20px; }
+  .hero h1 em{ color:var(--terracotta); font-style:italic; }
+  .hero p{ font-size:17px; color:rgba(42,33,28,0.72); max-width:52ch; margin:0 auto 28px; }
+  .hero-ctas{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary{ background:var(--char); color:#fff; padding:14px 28px; border-radius:2px; font-size:14px; font-weight:600; text-decoration:none; text-transform:uppercase; letter-spacing:0.03em; }
+  .btn-ghost{ border:1.5px solid var(--char); padding:14px 28px; border-radius:2px; font-size:14px; font-weight:600; text-decoration:none; text-transform:uppercase; letter-spacing:0.03em; color:var(--char); }
+  .divider{ max-width:1100px; margin:0 auto; padding:0 24px; }
+  .divider hr{ border:none; border-top:1px solid var(--line); }
+  .menu-section{ max-width:900px; margin:0 auto; padding:64px 24px; }
+  .menu-head{ text-align:center; margin-bottom:40px; }
+  .menu-head h2{ font-size:clamp(28px,4vw,40px); }
+  .menu-head p{ color:var(--olive); font-size:14px; text-transform:uppercase; letter-spacing:0.1em; margin-top:8px; }
+  .menu-row{ display:flex; justify-content:space-between; align-items:baseline; padding:20px 0; border-bottom:1px dotted var(--line); gap:20px; }
+  .menu-name{ font-family:'Playfair Display', serif; font-size:20px; }
+  .menu-desc{ font-size:14px; color:rgba(42,33,28,0.6); margin-top:4px; max-width:44ch; }
+  .menu-price{ font-size:16px; font-weight:600; color:var(--terracotta); white-space:nowrap; }
+  .strip{ background:var(--char); color:var(--cream); padding:56px 24px; }
+  .strip-inner{ max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:36px; text-align:center; }
+  .strip-item .num{ font-family:'Playfair Display', serif; font-size:34px; color:var(--terracotta); }
+  .strip-item .label{ font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(246,239,230,0.7); margin-top:8px; }
+  .cta-section{ max-width:1100px; margin:0 auto; padding:80px 24px; text-align:center; }
+  .cta-section h2{ font-size:clamp(30px,5vw,48px); max-width:18ch; margin:0 auto 18px; }
+  .cta-section p{ color:rgba(42,33,28,0.7); max-width:46ch; margin:0 auto 30px; font-size:15px; }
+  footer{ border-top:1px solid var(--line); padding:26px 24px; text-align:center; font-size:13px; color:rgba(42,33,28,0.55); }
+  @media (max-width:700px){ .strip-inner{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">Ember &amp; Oak</div><a class="nav-cta" href="#reserve">Reserve a table</a></div></header>
+<section class="hero">
+  <span class="eyebrow">Modern Bistro — Wood-Fired, Seasonal</span>
+  <h1>Dinner, done <em>slowly.</em></h1>
+  <p>A small seasonal menu built around the wood-fired grill. No rush, no rotating gimmicks — just food cooked properly and served when it's ready.</p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="#reserve">Reserve a table</a>
+    <a class="btn-ghost" href="#menu">View the menu</a>
+  </div>
+</section>
+<div class="divider"><hr></div>
+<section class="menu-section" id="menu">
+  <div class="menu-head"><h2>This Week's Menu</h2><p>Changes weekly with what's in season</p></div>
+  <div class="menu-row"><div><div class="menu-name">Wood-Fired Trout</div><div class="menu-desc">Brown butter, capers, charred lemon</div></div><div class="menu-price">$28</div></div>
+  <div class="menu-row"><div><div class="menu-name">Slow Roast Short Rib</div><div class="menu-desc">Root vegetable puree, red wine jus</div></div><div class="menu-price">$34</div></div>
+  <div class="menu-row"><div><div class="menu-name">Charred Hispi Cabbage</div><div class="menu-desc">Whipped feta, chili oil, herbs</div></div><div class="menu-price">$19</div></div>
+  <div class="menu-row"><div><div class="menu-name">House Sourdough</div><div class="menu-desc">Cultured butter, sea salt</div></div><div class="menu-price">$8</div></div>
+</section>
+<section class="strip">
+  <div class="strip-inner">
+    <div class="strip-item"><div class="num">12</div><div class="label">Years running</div></div>
+    <div class="strip-item"><div class="num">100%</div><div class="label">Seasonal sourcing</div></div>
+    <div class="strip-item"><div class="num">4.9</div><div class="label">Average rating</div></div>
+  </div>
+</section>
+<section class="cta-section" id="reserve">
+  <h2>Tables fill fast on weekends.</h2>
+  <p>Send your preferred night and party size — confirmation comes back same day.</p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="https://wa.me/10000000000" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn-ghost" href="mailto:reserve@emberandoak.example">Email instead</a>
+  </div>
+</section>
+<footer>Ember &amp; Oak — Modern Bistro. Sample site built by [Your Name] · emberandoak.example</footer>
+</body>
+</html>
