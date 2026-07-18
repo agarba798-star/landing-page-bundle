@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whitfield & Cole — Legal Counsel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#131c2e; --charcoal:#1e2634; --gold:#8a6d1f; --paper:#faf9f6; --line:rgba(19,28,46,0.14); }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ font-family:'Source Sans 3', Arial, sans-serif; background:var(--paper); color:var(--navy); line-height:1.6; }
+  h1,h2,h3{ font-family:'Source Serif 4', Georgia, serif; font-weight:700; color:var(--navy); }
+  a{ color:inherit; }
+  header{ background:var(--navy); border-bottom:3px solid var(--gold); }
+  .nav{ max-width:1140px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:20px 24px; }
+  .brand{ font-family:'Source Serif 4', serif; font-size:20px; font-weight:700; color:#fff; letter-spacing:0.01em; }
+  .brand span{ color:var(--gold); }
+  .nav-cta{ border:1.5px solid var(--gold); color:var(--gold); padding:10px 20px; font-size:13px; font-weight:600; text-decoration:none; }
+  .hero{ max-width:1140px; margin:0 auto; padding:64px 24px 56px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; }
+  .eyebrow{ font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:18px; display:block; }
+  .hero h1{ font-size:clamp(30px,4.5vw,46px); line-height:1.15; margin-bottom:20px; }
+  .hero p{ font-size:16px; color:rgba(19,28,46,0.68); max-width:46ch; margin-bottom:28px; }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn-primary{ background:var(--navy); color:#fff; padding:14px 26px; font-size:14px; font-weight:600; text-decoration:none; }
+  .btn-ghost{ border:1.5px solid var(--line); padding:14px 26px; font-size:14px; font-weight:600; text-decoration:none; color:var(--navy); }
+  .cred-card{ background:#fff; border:1px solid var(--line); border-top:4px solid var(--gold); padding:28px; }
+  .cred-row{ display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--line); font-size:14px; }
+  .cred-row:last-child{ border-bottom:none; }
+  .cred-row span:first-child{ color:rgba(19,28,46,0.6); }
+  .cred-row span:last-child{ font-weight:600; }
+  .divider{ max-width:1140px; margin:0 auto; padding:0 24px; }
+  .divider hr{ border:none; border-top:1px solid var(--line); }
+  .practice{ max-width:1140px; margin:0 auto; padding:64px 24px; }
+  .section-head{ margin-bottom:32px; }
+  .section-head h2{ font-size:clamp(26px,4vw,36px); }
+  .section-head p{ color:rgba(19,28,46,0.62); font-size:14px; margin-top:8px; max-width:50ch; }
+  .practice-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--line); }
+  .practice-card{ padding:24px; border-right:1px solid var(--line); }
+  .practice-card:last-child{ border-right:none; }
+  .practice-card h3{ font-size:17px; margin-bottom:8px; }
+  .practice-card p{ font-size:13px; color:rgba(19,28,46,0.6); }
+  .strip{ background:var(--charcoal); color:#fff; padding:56px 24px; }
+  .strip-inner{ max-width:1140px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:28px; text-align:center; }
+  .strip-item .num{ font-family:'Source Serif 4', serif; font-size:30px; font-weight:700; color:var(--gold); }
+  .strip-item .label{ font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:rgba(255,255,255,0.6); margin-top:6px; }
+  .cta-section{ max-width:1140px; margin:0 auto; padding:80px 24px; text-align:center; }
+  .cta-section h2{ font-size:clamp(28px,5vw,42px); max-width:22ch; margin:0 auto 18px; }
+  .cta-section p{ color:rgba(19,28,46,0.65); max-width:46ch; margin:0 auto 30px; font-size:15px; }
+  footer{ border-top:1px solid var(--line); padding:26px 24px; text-align:center; font-size:13px; color:rgba(19,28,46,0.5); }
+  @media (max-width:860px){ .hero{ grid-template-columns:1fr; } .practice-grid{ grid-template-columns:1fr 1fr; } .practice-card{ border-right:none; border-bottom:1px solid var(--line); } .strip-inner{ grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">WHITFIELD &amp; <span>COLE</span></div><a class="nav-cta" href="#contact">Request consultation</a></div></header>
+<section class="hero">
+  <div>
+    <span class="eyebrow">Business & Commercial Law</span>
+    <h1>Straight answers on complex agreements.</h1>
+    <p>Counsel for founders, small businesses, and property owners who need contracts reviewed properly — not rubber-stamped.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#contact">Request a consultation</a>
+      <a class="btn-ghost" href="#practice">Practice areas</a>
+    </div>
+  </div>
+  <div class="cred-card">
+    <div class="cred-row"><span>Years practicing</span><span>18</span></div>
+    <div class="cred-row"><span>Bar admissions</span><span>3 states</span></div>
+    <div class="cred-row"><span>Client rating</span><span>4.9 / 5</span></div>
+  </div>
+</section>
+<div class="divider"><hr></div>
+<section class="practice" id="practice">
+  <div class="section-head"><h2>Practice Areas</h2><p>Every engagement starts with a fixed-fee consultation, so you know the cost before anything begins.</p></div>
+  <div class="practice-grid">
+    <div class="practice-card"><h3>Contract Review</h3><p>Vendor, lease, and partnership agreements reviewed line by line.</p></div>
+    <div class="practice-card"><h3>Business Formation</h3><p>LLC and corporate setup, founder agreements, equity splits.</p></div>
+    <div class="practice-card"><h3>Real Estate</h3><p>Purchase agreements, lease disputes, title issues.</p></div>
+    <div class="practice-card"><h3>Employment Law</h3><p>Contracts, disputes, and compliance for small employers.</p></div>
+  </div>
+</section>
+<section class="strip">
+  <div class="strip-inner">
+    <div class="strip-item"><div class="num">18</div><div class="label">Years in practice</div></div>
+    <div class="strip-item"><div class="num">400+</div><div class="label">Contracts reviewed</div></div>
+    <div class="strip-item"><div class="num">96%</div><div class="label">Client retention</div></div>
+    <div class="strip-item"><div class="num">48hr</div><div class="label">Standard response time</div></div>
+  </div>
+</section>
+<section class="cta-section" id="contact">
+  <h2>Get a straight answer before you sign anything.</h2>
+  <p>A fixed-fee initial consultation gets you clarity on where you stand — no open-ended billing.</p>
+  <div class="hero-ctas" style="justify-content:center;">
+    <a class="btn-primary" href="https://wa.me/10000000000" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn-ghost" href="mailto:consult@whitfieldcole.example">Email instead</a>
+  </div>
+</section>
+<footer>Whitfield &amp; Cole — Business &amp; Commercial Law. Sample site built by [Your Name] · whitfieldcole.example</footer>
+</body>
+</html>
