@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX — Online Transformation Coaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fafafa;
+    --ink:#0a0a0a;
+    --blue:#0038ff;
+    --acid:#dfff3c;
+    --gray:#6b6b6b;
+    --line:rgba(10,10,10,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .display{
+    font-family:'Anton', 'Arial Narrow', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 24px;
+  }
+  .brand{ font-family:'Anton', sans-serif; font-size:24px; letter-spacing:0.02em; }
+  .brand .dot{ color:var(--blue); }
+  .nav-cta{
+    background:var(--ink); color:var(--paper);
+    padding:12px 22px; border-radius:100px;
+    font-size:13px; font-weight:700; text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.03em;
+  }
+
+  /* Hero with diagonal block */
+  .hero{
+    position:relative;
+    max-width:1180px; margin:0 auto;
+    padding:56px 24px 0;
+    overflow:hidden;
+  }
+  .hero-tag{
+    display:inline-block;
+    background:var(--acid); color:var(--ink);
+    padding:7px 14px; font-size:12px; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.06em;
+    margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:clamp(44px, 9vw, 118px);
+    line-height:0.88;
+    margin-bottom:0;
+    position:relative; z-index:2;
+  }
+  .hero h1 .blue{ color:var(--blue); }
+  .hero-diag{
+    position:absolute;
+    top:0; right:-10%;
+    width:60%; height:100%;
+    background:var(--ink);
+    clip-path:polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
+    z-index:1;
+    opacity:0.04;
+  }
+  .hero-row{
+    display:grid; grid-template-columns:1.3fr 0.7fr;
+    gap:40px; align-items:end;
+    margin-top:28px; padding-bottom:48px;
+    position:relative; z-index:2;
+  }
+  .hero-row p{
+    font-size:17px; color:var(--gray); max-width:44ch; margin-bottom:24px;
+  }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn-primary{
+    background:var(--blue); color:#fff;
+    padding:16px 28px; border-radius:100px;
+    font-size:14px; font-weight:700; text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.03em;
+    display:inline-block;
+  }
+  .btn-ghost{
+    border:2px solid var(--ink);
+    padding:14px 28px; border-radius:100px;
+    font-size:14px; font-weight:700; text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.03em;
+    color:var(--ink);
+    display:inline-block;
+  }
+  .hero-badge{
+    background:var(--ink); color:var(--paper);
+    padding:24px; border-radius:16px;
+    clip-path:polygon(0 0, 100% 0, 100% 85%, 88% 100%, 0 100%);
+  }
+  .hero-badge .num{ font-family:'Anton', sans-serif; font-size:52px; color:var(--acid); line-height:1; }
+  .hero-badge .cap{ font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(250,250,250,0.7); margin-top:6px; }
+
+  /* Stat strip - by the numbers, animated counters */
+  .stats{
+    background:var(--ink); color:var(--paper);
+    padding:48px 24px;
+  }
+  .stats-inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+    text-align:center;
+  }
+  .stat .display{ font-size:clamp(32px,5vw,56px); color:var(--acid); }
+  .stat .label{ font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(250,250,250,0.65); margin-top:8px; }
+
+  /* Programs */
+  .programs{ max-width:1180px; margin:0 auto; padding:72px 24px; }
+  .section-head{ margin-bottom:36px; }
+  .section-head .display{ font-size:clamp(30px,4.5vw,48px); }
+  .section-head p{ color:var(--gray); font-size:15px; max-width:44ch; margin-top:8px; }
+  .program-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .program-card{
+    border:1px solid var(--line); border-radius:16px;
+    padding:28px; position:relative; overflow:hidden;
+  }
+  .program-card::before{
+    content:''; position:absolute; top:0; right:0;
+    width:60px; height:60px; background:var(--acid);
+    clip-path:polygon(100% 0, 0 0, 100% 100%);
+  }
+  .program-card h3{ font-family:'Anton', sans-serif; font-size:22px; text-transform:uppercase; margin-bottom:10px; }
+  .program-card p{ font-size:14px; color:var(--gray); margin-bottom:18px; }
+  .program-price{ font-size:24px; font-weight:800; }
+  .program-price span{ font-size:13px; font-weight:500; color:var(--gray); }
+
+  /* Transformation banner */
+  .banner{
+    background:var(--blue); color:#fff;
+    padding:64px 24px;
+    text-align:center;
+  }
+  .banner .display{ font-size:clamp(28px,5vw,48px); max-width:20ch; margin:0 auto 16px; line-height:1.05; }
+  .banner p{ opacity:0.85; max-width:46ch; margin:0 auto 28px; font-size:15px; }
+
+  /* CTA */
+  .cta-section{ max-width:1180px; margin:0 auto; padding:80px 24px; text-align:center; }
+  .cta-section .display{ font-size:clamp(32px,6vw,64px); line-height:0.95; margin-bottom:20px; }
+  .cta-section p{ color:var(--gray); max-width:46ch; margin:0 auto 32px; font-size:15px; }
+
+  footer{ border-top:1px solid var(--line); padding:24px; text-align:center; font-size:12px; color:var(--gray); text-transform:uppercase; letter-spacing:0.04em; }
+
+  @media (max-width:860px){
+    .hero-row{ grid-template-columns:1fr; }
+    .stats-inner{ grid-template-columns:1fr 1fr; }
+    .program-grid{ grid-template-columns:1fr; }
+  }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">APEX<span class="dot">.</span></div>
+    <a class="nav-cta" href="#start">Start today</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-diag"></div>
+  <span class="hero-tag">Online coaching — 12 week programs</span>
+  <h1 class="display">Train with<br>proof, not<br><span class="blue">promises.</span></h1>
+  <div class="hero-row">
+    <div>
+      <p>Custom training and nutrition plans built around your actual numbers — not a generic PDF. Weekly check-ins, real adjustments, no guesswork.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#start">Book a free consult</a>
+        <a class="btn-ghost" href="#programs">See programs</a>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="num" id="count-clients">0</div>
+      <div class="cap">Clients coached to goal</div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="display" id="count-weeks">0</div>
+      <div class="label">Avg. weeks to first result</div>
+    </div>
+    <div class="stat">
+      <div class="display" id="count-retention">0%</div>
+      <div class="label">12-week retention rate</div>
+    </div>
+    <div class="stat">
+      <div class="display" id="count-checkins">0</div>
+      <div class="label">Check-ins run to date</div>
+    </div>
+    <div class="stat">
+      <div class="display" id="count-countries">0</div>
+      <div class="label">Countries coached in</div>
+    </div>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="section-head">
+    <h2 class="display">Pick your program</h2>
+    <p>Every plan starts with a real intake call — not a quiz that spits out a template.</p>
+  </div>
+  <div class="program-grid">
+    <div class="program-card">
+      <h3>Foundations</h3>
+      <p>Training plan, form checks, monthly check-in. Best if you're new to structured training.</p>
+      <div class="program-price">$149<span>/mo</span></div>
+    </div>
+    <div class="program-card">
+      <h3>Transformation</h3>
+      <p>Full training + nutrition plan, weekly check-ins, direct messaging access.</p>
+      <div class="program-price">$249<span>/mo</span></div>
+    </div>
+    <div class="program-card">
+      <h3>1:1 Elite</h3>
+      <p>Everything in Transformation, plus bi-weekly video calls and priority plan adjustments.</p>
+      <div class="program-price">$399<span>/mo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="banner">
+  <h2 class="display">Results get tracked.<br>Not just promised.</h2>
+  <p>Every client gets a shared log — lifts, weight, photos, energy — so progress is a fact, not a feeling.</p>
+  <a class="btn-primary" href="#start" style="background:var(--ink);">See sample tracking sheet</a>
+</section>
+
+<section class="cta-section" id="start">
+  <h2 class="display">Your first<br>consult is free.</h2>
+  <p>20 minutes, no pitch deck. We look at your goals and tell you honestly if this is a fit.</p>
+  <div class="hero-ctas" style="justify-content:center;">
+    <a class="btn-primary" href="https://wa.me/2340000000000" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn-ghost" href="mailto:coach@apexcoaching.example">Email instead</a>
+  </div>
+</section>
+
+<footer>
+  APEX Coaching — Online, worldwide. Sample site built by [Your Name] · apexcoaching.example
+</footer>
+
+<script>
+  function animateCount(id, target, suffix, duration){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var start = 0;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var value = Math.floor(progress * target);
+      el.textContent = value + (suffix || '');
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + (suffix || '');
+    }
+    requestAnimationFrame(step);
+  }
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){
+    document.getElementById('count-clients').textContent = '312';
+    document.getElementById('count-weeks').textContent = '6';
+    document.getElementById('count-retention').textContent = '94%';
+    document.getElementById('count-checkins').textContent = '4,800';
+    document.getElementById('count-countries').textContent = '14';
+  } else {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          if(entry.target.id === 'count-clients') animateCount('count-clients', 312, '', 1400);
+          if(entry.target.id === 'count-weeks') animateCount('count-weeks', 6, '', 1200);
+          if(entry.target.id === 'count-retention') animateCount('count-retention', 94, '%', 1200);
+          if(entry.target.id === 'count-checkins') animateCount('count-checkins', 4800, '', 1600);
+          if(entry.target.id === 'count-countries') animateCount('count-countries', 14, '', 1000);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    ['count-clients','count-weeks','count-retention','count-checkins','count-countries'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) observer.observe(el);
+    });
+  }
+</script>
+
+</body>
+</html>
