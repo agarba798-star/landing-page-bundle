@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACKCUP — Specialty Roastery, Abuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0f0c;
+    --panel:#17180f;
+    --paper:#f4f2ed;
+    --lime:#c8ff3d;
+    --lime-dim:#9fce1e;
+    --red:#ff5a36;
+    --line:#f4f2ed;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'IBM Plex Mono', 'Courier New', monospace;
+    background:var(--bg);
+    color:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .display{
+    font-family:'Archivo Black', 'Arial Black', sans-serif;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+  }
+  a{color:inherit;}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--bg);
+    border-bottom:3px solid var(--line);
+  }
+  .nav{
+    max-width:1200px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px;
+  }
+  .brand{
+    font-family:'Archivo Black', sans-serif; font-size:22px;
+    letter-spacing:-0.02em;
+  }
+  .brand span{ color:var(--lime); }
+  .nav-cta{
+    background:var(--lime); color:var(--bg);
+    padding:10px 20px;
+    font-size:13px; font-weight:700; text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.04em;
+    border:2px solid var(--lime);
+    box-shadow:4px 4px 0 var(--paper);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .nav-cta:hover{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--paper); }
+
+  /* Marquee ticker */
+  .ticker{
+    border-bottom:3px solid var(--line);
+    background:var(--panel);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:10px 0;
+  }
+  .ticker-track{
+    display:inline-block;
+    animation:scroll-left 22s linear infinite;
+    font-size:13px; letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .ticker-track span{ margin:0 28px; color:var(--lime); }
+  @keyframes scroll-left{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce){ .ticker-track{ animation:none; } }
+
+  /* Hero */
+  .hero{
+    max-width:1200px; margin:0 auto;
+    padding:64px 24px 56px;
+  }
+  .hero-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:24px; margin-bottom:8px; flex-wrap:wrap;
+  }
+  .eyebrow{
+    font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--lime); font-weight:700;
+  }
+  .stamp{
+    border:2px solid var(--lime); color:var(--lime);
+    padding:8px 14px; font-size:12px; font-weight:700;
+    letter-spacing:0.08em; text-transform:uppercase;
+    transform:rotate(4deg);
+    white-space:nowrap;
+  }
+  .hero h1{
+    font-size:clamp(42px, 9vw, 108px);
+    line-height:0.95;
+    margin:12px 0 28px;
+  }
+  .hero h1 .accent{ color:var(--lime); }
+  .hero-sub{
+    display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px;
+    align-items:end;
+  }
+  .hero p{
+    font-size:16px; color:rgba(244,242,237,0.78);
+    max-width:52ch;
+  }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-top:24px; }
+  .btn-primary{
+    background:var(--lime); color:var(--bg);
+    padding:15px 28px;
+    font-size:14px; font-weight:700; text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.04em;
+    border:2px solid var(--lime);
+    box-shadow:5px 5px 0 var(--paper);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{ transform:translate(3px,3px); box-shadow:2px 2px 0 var(--paper); }
+  .btn-ghost{
+    padding:15px 28px;
+    font-size:14px; font-weight:700; text-decoration:none;
+    text-transform:uppercase; letter-spacing:0.04em;
+    border:2px solid var(--paper); color:var(--paper);
+    transition:background 0.15s ease, color 0.15s ease;
+    display:inline-block;
+  }
+  .btn-ghost:hover{ background:var(--paper); color:var(--bg); }
+
+  /* Origin bars - signature element */
+  .origin-panel{
+    border:2px solid var(--paper);
+    padding:20px;
+  }
+  .origin-panel .label{
+    font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    color:rgba(244,242,237,0.6); margin-bottom:16px; display:block;
+  }
+  .origin-row{ margin-bottom:14px; }
+  .origin-row:last-child{ margin-bottom:0; }
+  .origin-row-top{
+    display:flex; justify-content:space-between;
+    font-size:13px; margin-bottom:6px;
+  }
+  .origin-bar{
+    height:10px; background:rgba(244,242,237,0.12);
+    border:1px solid var(--paper);
+  }
+  .origin-bar-fill{ height:100%; background:var(--lime); }
+
+  /* Divider */
+  .divider{ border-top:3px solid var(--line); }
+
+  /* Menu */
+  .menu{
+    max-width:1200px; margin:0 auto;
+    padding:64px 24px;
+  }
+  .menu-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:32px; flex-wrap:wrap; gap:12px;
+  }
+  .menu-head h2{ font-size:clamp(28px,4vw,42px); }
+  .menu-head p{ font-size:14px; color:rgba(244,242,237,0.6); max-width:36ch; }
+  .menu-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:0;
+    border:2px solid var(--paper);
+  }
+  .menu-item{
+    padding:24px; border-right:2px solid var(--paper); border-bottom:2px solid var(--paper);
+  }
+  .menu-item:nth-child(2n){ border-right:none; }
+  .menu-item-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
+  .menu-item h3{ font-family:'Archivo Black', sans-serif; font-size:19px; text-transform:uppercase; }
+  .menu-item .price{ color:var(--lime); font-weight:700; font-size:15px; white-space:nowrap; }
+  .menu-item p{ font-size:14px; color:rgba(244,242,237,0.65); }
+
+  /* Process strip */
+  .process{
+    background:var(--lime); color:var(--bg);
+    padding:56px 24px;
+    border-top:3px solid var(--line); border-bottom:3px solid var(--line);
+  }
+  .process-inner{
+    max-width:1200px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  }
+  .process-item{
+    padding:0 20px;
+    border-left:2px solid var(--bg);
+  }
+  .process-item:first-child{ border-left:none; padding-left:0; }
+  .process-item .step{ font-family:'Archivo Black', sans-serif; font-size:32px; margin-bottom:10px; }
+  .process-item h4{ font-size:14px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px; font-weight:700; }
+  .process-item p{ font-size:13px; opacity:0.75; }
+
+  /* CTA */
+  .cta-section{
+    max-width:1200px; margin:0 auto;
+    padding:80px 24px;
+    text-align:center;
+  }
+  .cta-section h2{
+    font-size:clamp(32px, 6vw, 64px);
+    margin:0 auto 22px;
+    line-height:0.98;
+  }
+  .cta-section p{
+    color:rgba(244,242,237,0.72); max-width:46ch; margin:0 auto 32px;
+    font-size:15px;
+  }
+
+  footer{
+    border-top:3px solid var(--line);
+    padding:24px;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:rgba(244,242,237,0.5);
+    text-transform:uppercase;
+  }
+
+  @media (max-width:860px){
+    .hero-sub{ grid-template-columns:1fr; }
+    .menu-grid{ grid-template-columns:1fr; }
+    .menu-item{ border-right:none !important; }
+    .process-inner{ grid-template-columns:1fr 1fr; row-gap:28px; }
+    .process-item:nth-child(3){ border-left:none; padding-left:0; }
+  }
+  @media (max-width:480px){
+    .process-inner{ grid-template-columns:1fr; }
+    .process-item{ border-left:none !important; padding-left:0 !important; }
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--lime); outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">BLACK<span>CUP</span></div>
+    <a class="nav-cta" href="#order">Order now</a>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>ETHIOPIA — YIRGACHEFFE</span><span>COLOMBIA — HUILA</span><span>KENYA — NYERI</span><span>RWANDA — HUYE</span>
+    <span>ETHIOPIA — YIRGACHEFFE</span><span>COLOMBIA — HUILA</span><span>KENYA — NYERI</span><span>RWANDA — HUYE</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-top">
+    <span class="eyebrow">Wuse, Abuja — Roasted on-site, weekly</span>
+    <span class="stamp">Est. 2024</span>
+  </div>
+  <h1 class="display">Coffee that tells you<br>where it's <span class="accent">from.</span></h1>
+  <div class="hero-sub">
+    <div>
+      <p>Small-batch roasted in Abuja, sourced direct from four origins. Every bag is dated, every cup is traceable back to the farm it came from.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#order">Get this week's roast</a>
+        <a class="btn-ghost" href="#menu">See the menu</a>
+      </div>
+    </div>
+    <div class="origin-panel">
+      <span class="label">This week's origins</span>
+      <div class="origin-row">
+        <div class="origin-row-top"><span>Ethiopia — Yirgacheffe</span><span>Light</span></div>
+        <div class="origin-bar"><div class="origin-bar-fill" style="width:35%"></div></div>
+      </div>
+      <div class="origin-row">
+        <div class="origin-row-top"><span>Colombia — Huila</span><span>Medium</span></div>
+        <div class="origin-bar"><div class="origin-bar-fill" style="width:60%"></div></div>
+      </div>
+      <div class="origin-row">
+        <div class="origin-row-top"><span>Kenya — Nyeri</span><span>Medium-Dark</span></div>
+        <div class="origin-bar"><div class="origin-bar-fill" style="width:75%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="menu" id="menu">
+  <div class="menu-head">
+    <h2 class="display">On the bar</h2>
+    <p>Rotates weekly with the roast. Ask which origin is pulling best today.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <div class="menu-item-top"><h3>Espresso</h3><span class="price">₦2,500</span></div>
+      <p>Double shot, single origin, no blend fillers.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-top"><h3>Pour Over</h3><span class="price">₦3,500</span></div>
+      <p>Hand-brewed to order, origin of the week.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-top"><h3>Cortado</h3><span class="price">₦3,000</span></div>
+      <p>Equal parts espresso and steamed milk, no foam.</p>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item-top"><h3>Cold Brew</h3><span class="price">₦3,200</span></div>
+      <p>18-hour steep, bottled fresh each morning.</p>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="process-inner">
+    <div class="process-item">
+      <div class="step display">01</div>
+      <h4>Sourced</h4>
+      <p>Direct-trade relationships with four cooperatives across East Africa and South America.</p>
+    </div>
+    <div class="process-item">
+      <div class="step display">02</div>
+      <h4>Roasted</h4>
+      <p>Small drum batches, roasted in Abuja weekly — never sitting in a warehouse for months.</p>
+    </div>
+    <div class="process-item">
+      <div class="step display">03</div>
+      <h4>Dated</h4>
+      <p>Every bag carries a roast date, not a vague "best before" year.</p>
+    </div>
+    <div class="process-item">
+      <div class="step display">04</div>
+      <h4>Poured</h4>
+      <p>Brewed to order at the bar — nothing sits in an airpot for hours.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="order">
+  <h2 class="display">Come taste<br>the difference.</h2>
+  <p>Open daily, 7am–7pm. Bags available to take home, wholesale accounts open for offices and hotels.</p>
+  <div class="hero-ctas" style="justify-content:center;">
+    <a class="btn-primary" href="https://wa.me/2340000000000" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn-ghost" href="mailto:hello@blackcup.example">Email instead</a>
+  </div>
+</section>
+
+<footer>
+  BLACKCUP — Wuse, Abuja. Sample site built by [Your Name] · blackcup.example
+</footer>
+
+</body>
+</html>
