@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcus Reyes — Real Estate Advisor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#101114; --paper:#ffffff; --gray:#f2f1ee; --gold:#a8862f; --line:rgba(16,17,20,0.12); }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ font-family:'Libre Franklin', Arial, sans-serif; background:var(--paper); color:var(--ink); line-height:1.55; }
+  h1,h2,h3{ font-weight:800; letter-spacing:-0.01em; }
+  a{ color:inherit; }
+  header{ position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:1px solid var(--line); }
+  .nav{ max-width:1140px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:20px 24px; }
+  .brand{ font-size:19px; font-weight:800; letter-spacing:0.02em; }
+  .brand span{ color:var(--gold); }
+  .nav-cta{ background:var(--ink); color:#fff; padding:11px 22px; font-size:13px; font-weight:700; text-decoration:none; text-transform:uppercase; letter-spacing:0.04em; }
+  .hero{ max-width:1140px; margin:0 auto; padding:64px 24px 0; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; }
+  .eyebrow{ font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:18px; display:block; }
+  .hero h1{ font-size:clamp(34px,5vw,54px); line-height:1.08; margin-bottom:22px; }
+  .hero p{ font-size:16px; color:rgba(16,17,20,0.68); max-width:46ch; margin-bottom:28px; }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn-primary{ background:var(--ink); color:#fff; padding:14px 26px; font-size:14px; font-weight:700; text-decoration:none; text-transform:uppercase; letter-spacing:0.03em; }
+  .btn-ghost{ border:1.5px solid var(--line); padding:14px 26px; font-size:14px; font-weight:700; text-decoration:none; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink); }
+  .stat-card{ background:var(--gray); padding:32px; border-left:4px solid var(--gold); }
+  .stat-row{ display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); }
+  .stat-row:last-child{ border-bottom:none; }
+  .stat-row .num{ font-size:26px; font-weight:800; }
+  .stat-row .label{ font-size:13px; color:rgba(16,17,20,0.6); text-transform:uppercase; letter-spacing:0.04em; align-self:flex-end; }
+  .divider{ max-width:1140px; margin:0 auto; padding:0 24px; }
+  .divider hr{ border:none; border-top:1px solid var(--line); }
+  .listings{ max-width:1140px; margin:0 auto; padding:64px 24px; }
+  .section-head{ margin-bottom:32px; }
+  .section-head h2{ font-size:clamp(26px,4vw,38px); }
+  .section-head p{ color:rgba(16,17,20,0.6); font-size:14px; margin-top:8px; }
+  .listing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--line); }
+  .listing-card{ padding:26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .listing-card:nth-child(3n){ border-right:none; }
+  .listing-tag{ display:inline-block; background:var(--gray); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; padding:5px 10px; margin-bottom:14px; font-weight:700; }
+  .listing-card h3{ font-size:19px; margin-bottom:6px; }
+  .listing-specs{ font-size:13px; color:rgba(16,17,20,0.55); margin-bottom:14px; }
+  .listing-price{ font-size:20px; font-weight:800; color:var(--gold); }
+  .strip{ background:var(--ink); color:#fff; padding:56px 24px; }
+  .strip-inner{ max-width:1140px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:28px; text-align:center; }
+  .strip-item .num{ font-size:30px; font-weight:800; color:var(--gold); }
+  .strip-item .label{ font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:rgba(255,255,255,0.6); margin-top:6px; }
+  .cta-section{ max-width:1140px; margin:0 auto; padding:80px 24px; text-align:center; }
+  .cta-section h2{ font-size:clamp(28px,5vw,42px); max-width:20ch; margin:0 auto 18px; }
+  .cta-section p{ color:rgba(16,17,20,0.65); max-width:46ch; margin:0 auto 30px; font-size:15px; }
+  footer{ border-top:1px solid var(--line); padding:26px 24px; text-align:center; font-size:13px; color:rgba(16,17,20,0.5); }
+  @media (max-width:860px){ .hero{ grid-template-columns:1fr; } .listing-grid{ grid-template-columns:1fr; } .listing-card{ border-right:none !important; } .strip-inner{ grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">MARCUS <span>REYES</span></div><a class="nav-cta" href="#contact">Book a call</a></div></header>
+<section class="hero">
+  <div>
+    <span class="eyebrow">Residential & Investment Real Estate</span>
+    <h1>Buying or selling isn't guesswork. It's a process.</h1>
+    <p>Fifteen years advising buyers and sellers on pricing, timing, and negotiation — with a track record you can actually check.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#contact">Schedule a consultation</a>
+      <a class="btn-ghost" href="#listings">View current listings</a>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-row"><span class="num">$142M</span><span class="label">Sales volume, career</span></div>
+    <div class="stat-row"><span class="num">218</span><span class="label">Homes closed</span></div>
+    <div class="stat-row"><span class="num">11 days</span><span class="label">Avg. days on market</span></div>
+  </div>
+</section>
+<div class="divider"><hr></div>
+<section class="listings" id="listings">
+  <div class="section-head"><h2>Current Listings</h2><p>Updated weekly — call for a private showing.</p></div>
+  <div class="listing-grid">
+    <div class="listing-card"><span class="listing-tag">New Listing</span><h3>142 Ridgeview Ln</h3><div class="listing-specs">4 bed · 3 bath · 2,850 sqft</div><div class="listing-price">$685,000</div></div>
+    <div class="listing-card"><span class="listing-tag">Under Contract</span><h3>29 Harbor Ct</h3><div class="listing-specs">3 bed · 2 bath · 1,940 sqft</div><div class="listing-price">$449,000</div></div>
+    <div class="listing-card"><span class="listing-tag">New Listing</span><h3>Unit 12B, The Meridian</h3><div class="listing-specs">2 bed · 2 bath · 1,120 sqft</div><div class="listing-price">$392,000</div></div>
+  </div>
+</section>
+<section class="strip">
+  <div class="strip-inner">
+    <div class="strip-item"><div class="num">15</div><div class="label">Years experience</div></div>
+    <div class="strip-item"><div class="num">98%</div><div class="label">Client referral rate</div></div>
+    <div class="strip-item"><div class="num">4.9★</div><div class="label">Average review</div></div>
+    <div class="strip-item"><div class="num">24/7</div><div class="label">Client response line</div></div>
+  </div>
+</section>
+<section class="cta-section" id="contact">
+  <h2>Thinking about buying or selling?</h2>
+  <p>A 20-minute call gets you a straight answer on pricing, timing, and next steps — no pressure to commit.</p>
+  <div class="hero-ctas" style="justify-content:center;">
+    <a class="btn-primary" href="https://wa.me/10000000000" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn-ghost" href="mailto:marcus@marcusreyes.example">Email instead</a>
+  </div>
+</section>
+<footer>Marcus Reyes — Real Estate Advisor. Sample site built by [Your Name] · marcusreyes.example</footer>
+</body>
+</html>
