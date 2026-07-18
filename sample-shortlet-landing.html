@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdant Court — Maitama, Abuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14140f;
+    --stone:#f7f4ec;
+    --sand:#ede6d6;
+    --bottle:#16261f;
+    --bottle-light:#233a30;
+    --gold:#8a6a35;
+    --gold-on-dark:#c9a86a;
+    --line:rgba(20,20,15,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background:var(--stone);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,244,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1120px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px;
+  }
+  .brand{
+    font-family:'Fraunces', Georgia, serif; font-size:20px; font-weight:700;
+    letter-spacing:0.02em;
+  }
+  .nav-cta{
+    background:var(--bottle); color:var(--stone);
+    padding:10px 20px; border-radius:2px;
+    font-size:14px; font-weight:500;
+    text-decoration:none;
+    transition:background 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--bottle-light);}
+
+  /* Hero */
+  .hero{
+    max-width:1120px; margin:0 auto;
+    padding:72px 24px 56px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold); font-weight:600; margin-bottom:18px;
+    display:block;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5vw, 52px);
+    line-height:1.08;
+    margin-bottom:22px;
+  }
+  .hero p{
+    font-size:17px; line-height:1.65; color:rgba(20,20,15,0.82);
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--bottle); color:var(--stone);
+    padding:14px 26px; border-radius:2px;
+    font-size:15px; font-weight:500; text-decoration:none;
+    transition:background 0.2s ease;
+  }
+  .btn-primary:hover{background:var(--bottle-light);}
+  .btn-ghost{
+    border:1px solid var(--line);
+    padding:14px 26px; border-radius:2px;
+    font-size:15px; font-weight:500; text-decoration:none;
+    color:var(--ink);
+    transition:border-color 0.2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* Floor plan signature graphic */
+  .plan-wrap{
+    position:relative;
+    aspect-ratio:4/5;
+    background:var(--bottle);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .plan-svg{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+  }
+  .plan-svg path, .plan-svg line{
+    stroke:var(--sand);
+    stroke-width:1;
+    fill:none;
+    opacity:0.85;
+  }
+  .plan-svg .draw{
+    stroke-dasharray:1400;
+    stroke-dashoffset:1400;
+    animation:draw 2.6s ease forwards 0.3s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .plan-label{
+    position:absolute; bottom:20px; left:20px;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--sand); opacity:0.7;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .plan-svg .draw{ animation:none; stroke-dashoffset:0; }
+  }
+
+  /* Divider */
+  .divider{
+    max-width:1120px; margin:0 auto; padding:0 24px;
+  }
+  .divider hr{ border:none; border-top:1px solid var(--line); }
+
+  /* Features */
+  .features{
+    max-width:1120px; margin:0 auto;
+    padding:64px 24px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:40px;
+  }
+  .feature .num{
+    font-family:'Fraunces', serif; font-size:14px; color:var(--gold);
+    margin-bottom:14px; display:block;
+  }
+  .feature h3{ font-size:20px; margin-bottom:10px; font-weight:600; }
+  .feature p{ font-size:15px; line-height:1.6; color:rgba(20,20,15,0.78); }
+
+  /* Details strip */
+  .strip{
+    background:var(--bottle); color:var(--stone);
+    padding:56px 24px;
+  }
+  .strip-inner{
+    max-width:1120px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr; gap:48px;
+    align-items:start;
+  }
+  .strip h2{ font-size:28px; margin-bottom:18px; color:var(--stone); font-weight:600; }
+  .strip p{ color:rgba(247,244,236,0.85); font-size:15px; line-height:1.65; margin-bottom:14px;}
+  .spec-list{ list-style:none; }
+  .spec-list li{
+    display:flex; justify-content:space-between;
+    padding:14px 0; border-bottom:1px solid rgba(247,244,236,0.18);
+    font-size:15px; color:var(--stone);
+  }
+  .spec-list li span:first-child{ color:rgba(247,244,236,0.72); }
+
+  /* CTA */
+  .cta-section{
+    max-width:1120px; margin:0 auto;
+    padding:80px 24px;
+    text-align:center;
+  }
+  .cta-section h2{
+    font-size:clamp(28px, 4vw, 38px);
+    max-width:20ch; margin:0 auto 20px;
+  }
+  .cta-section p{
+    color:rgba(20,20,15,0.78); max-width:48ch; margin:0 auto 32px;
+    font-size:16px; line-height:1.6;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 24px;
+    text-align:center;
+    font-size:13px;
+    color:rgba(20,20,15,0.5);
+  }
+
+  @media (max-width:860px){
+    .hero{ grid-template-columns:1fr; padding-top:48px; }
+    .plan-wrap{ order:-1; aspect-ratio:16/10; }
+    .features{ grid-template-columns:1fr; gap:32px; }
+    .strip-inner{ grid-template-columns:1fr; gap:32px; }
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold); outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">Verdant Court</div>
+    <a class="nav-cta" href="#enquire">Check availability</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="eyebrow">Maitama, Abuja — Corporate Shortlet</span>
+    <h1>A furnished apartment built for people who work across time zones.</h1>
+    <p>Two- and three-bedroom serviced apartments in Maitama, fitted for diplomats, consultants, and teams on rotation. Fibre internet, backup power, and billing your finance team will actually accept.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#enquire">Request a rate sheet</a>
+      <a class="btn-ghost" href="#details">See the details</a>
+    </div>
+  </div>
+  <div class="plan-wrap">
+    <svg class="plan-svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+      <rect x="20" y="20" width="360" height="460" class="draw" style="stroke:#a8874a; opacity:0.5;"/>
+      <line x1="20" y1="180" x2="220" y2="180" class="draw"/>
+      <line x1="220" y1="20" x2="220" y2="480" class="draw"/>
+      <line x1="220" y1="320" x2="380" y2="320" class="draw"/>
+      <line x1="80" y1="180" x2="80" y2="20" class="draw"/>
+      <path d="M20,180 A60,60 0 0,0 80,120" class="draw"/>
+      <path d="M220,320 A50,50 0 0,1 270,270" class="draw"/>
+      <line x1="220" y1="400" x2="300" y2="400" class="draw"/>
+      <line x1="300" y1="320" x2="300" y2="480" class="draw"/>
+    </svg>
+    <span class="plan-label">Unit 3B — Floor Plan</span>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="features" id="details">
+  <div class="feature">
+    <span class="num">01</span>
+    <h3>Ready on arrival</h3>
+    <p>Housekeeping, fibre internet, and backup power are standard, not add-ons. Move in and start working the same day.</p>
+  </div>
+  <div class="feature">
+    <span class="num">02</span>
+    <h3>Corporate billing</h3>
+    <p>Invoices, receipts, and monthly statements formatted for finance departments — no chasing paperwork after checkout.</p>
+  </div>
+  <div class="feature">
+    <span class="num">03</span>
+    <h3>Flexible terms</h3>
+    <p>Weekly, monthly, or rolling stays. Scale from one room to a full team without switching properties.</p>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="strip-inner">
+    <div>
+      <h2>Built for teams, not tourists</h2>
+      <p>Verdant Court sits five minutes from the diplomatic zone, close enough for early meetings and quiet enough for focused work after hours.</p>
+      <p>Every unit is inspected and re-serviced between stays — the same standard whether you're booking one week or six months.</p>
+    </div>
+    <ul class="spec-list">
+      <li><span>Location</span><span>Maitama, Abuja</span></li>
+      <li><span>Unit types</span><span>2 & 3 bedroom</span></li>
+      <li><span>Minimum stay</span><span>7 nights</span></li>
+      <li><span>Power</span><span>24hr backup</span></li>
+      <li><span>Billing</span><span>Corporate invoicing</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-section" id="enquire">
+  <h2>Ready to check dates?</h2>
+  <p>Send your travel dates and team size — a rate sheet and availability come back same day.</p>
+  <div class="hero-ctas" style="justify-content:center;">
+    <a class="btn-primary" href="https://wa.me/2340000000000" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn-ghost" href="mailto:stay@verdantcourt.example">Email instead</a>
+  </div>
+</section>
+
+<footer>
+  Verdant Court — Maitama, Abuja. Sample site built by [Your Name] · verdantcourt.example
+</footer>
+
+</body>
+</html>
