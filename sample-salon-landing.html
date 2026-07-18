@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Noir — Wuse 2, Abuja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#2b1620;
+    --plum-light:#3a2028;
+    --blush:#f3e6e0;
+    --cream:#faf6f2;
+    --rose:#8a5a48;
+    --rose-dark:#6e4436;
+    --ink:#221016;
+    --line:rgba(34,16,22,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-weight:700;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,246,242,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1120px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 24px;
+  }
+  .brand{
+    font-family:'Cormorant Garamond', Georgia, serif; font-size:24px; font-weight:700;
+    letter-spacing:0.06em; text-transform:uppercase;
+  }
+  .nav-cta{
+    background:var(--plum); color:var(--cream);
+    padding:11px 22px; border-radius:2px;
+    font-size:14px; font-weight:600;
+    text-decoration:none;
+    transition:background 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--plum-light);}
+
+  .hero{
+    max-width:1120px; margin:0 auto;
+    padding:64px 24px 56px;
+    display:grid;
+    grid-template-columns:0.95fr 1.05fr;
+    gap:56px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-size:13px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--rose-dark); font-weight:700; margin-bottom:18px;
+    display:block;
+  }
+  .hero h1{
+    font-size:clamp(36px, 5vw, 56px);
+    line-height:1.1;
+    margin-bottom:22px;
+  }
+  .hero p{
+    font-size:17px; line-height:1.65; color:rgba(34,16,22,0.8);
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--plum); color:var(--cream);
+    padding:14px 26px; border-radius:2px;
+    font-size:15px; font-weight:600; text-decoration:none;
+    transition:background 0.2s ease;
+  }
+  .btn-primary:hover{background:var(--plum-light);}
+  .btn-ghost{
+    border:1px solid rgba(34,16,22,0.3);
+    padding:14px 26px; border-radius:2px;
+    font-size:15px; font-weight:600; text-decoration:none;
+    color:var(--ink);
+    transition:border-color 0.2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* Vanity mirror signature graphic */
+  .mirror-wrap{
+    position:relative;
+    aspect-ratio:1/1.1;
+    background:var(--plum);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .mirror-svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .mirror-oval{
+    fill:none; stroke:var(--blush); stroke-width:2;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw-mirror 1.8s ease forwards 0.2s;
+  }
+  @keyframes draw-mirror{ to{ stroke-dashoffset:0; } }
+  .mirror-bulb{
+    fill:var(--blush); opacity:0;
+    animation:bulb-in 0.5s ease forwards;
+  }
+  @keyframes bulb-in{ to{ opacity:0.9; } }
+  .mirror-label{
+    position:absolute; bottom:20px; left:20px;
+    font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--blush); opacity:0.75;
+    font-family:'Manrope', sans-serif; font-weight:600;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .mirror-oval{ animation:none; stroke-dashoffset:0; }
+    .mirror-bulb{ animation:none; opacity:0.9; }
+  }
+
+  .divider{ max-width:1120px; margin:0 auto; padding:0 24px; }
+  .divider hr{ border:none; border-top:1px solid var(--line); }
+
+  /* Services as an elegant ledger */
+  .services{
+    max-width:1120px; margin:0 auto;
+    padding:64px 24px;
+  }
+  .services-head{ margin-bottom:36px; }
+  .services-head h2{ font-size:32px; margin-bottom:10px; }
+  .services-head p{ color:rgba(34,16,22,0.68); font-size:15px; max-width:52ch; }
+  .service-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:20px 0; border-bottom:1px solid var(--line);
+    gap:24px;
+  }
+  .service-row:first-of-type{ border-top:1px solid var(--line); }
+  .service-name{ font-family:'Cormorant Garamond', serif; font-size:22px; font-weight:600; }
+  .service-desc{ font-size:14px; color:rgba(34,16,22,0.6); margin-top:4px; }
+  .service-price{ font-size:16px; font-weight:600; color:var(--rose-dark); white-space:nowrap; }
+
+  /* Feature strip */
+  .strip{
+    background:var(--plum); color:var(--cream);
+    padding:56px 24px;
+  }
+  .strip-inner{
+    max-width:1120px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
+  }
+  .strip-item .num{ font-family:'Cormorant Garamond', serif; font-size:15px; color:var(--blush); opacity:0.8; margin-bottom:12px; display:block;}
+  .strip-item h3{ color:var(--cream); font-size:20px; margin-bottom:8px; }
+  .strip-item p{ color:rgba(250,246,242,0.78); font-size:14px; line-height:1.6; }
+
+  .cta-section{
+    max-width:1120px; margin:0 auto;
+    padding:80px 24px;
+    text-align:center;
+  }
+  .cta-section h2{
+    font-size:clamp(30px, 4vw, 42px);
+    max-width:20ch; margin:0 auto 20px;
+  }
+  .cta-section p{
+    color:rgba(34,16,22,0.75); max-width:48ch; margin:0 auto 32px;
+    font-size:16px; line-height:1.6;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 24px;
+    text-align:center;
+    font-size:13px;
+    color:rgba(34,16,22,0.55);
+  }
+
+  @media (max-width:860px){
+    .hero{ grid-template-columns:1fr; padding-top:44px; }
+    .mirror-wrap{ order:-1; aspect-ratio:16/10; }
+    .strip-inner{ grid-template-columns:1fr; gap:28px; }
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--rose-dark); outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">Studio Noir</div>
+    <a class="nav-cta" href="#book">Book a chair</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="eyebrow">Wuse 2, Abuja — Hair & Beauty</span>
+    <h1>Precision cuts, patient colour, no rushed appointments.</h1>
+    <p>A six-chair studio where every booking gets a full consultation first. Trained colourists, premium product lines, and a calendar that doesn't overbook the day.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#book">See this week's openings</a>
+      <a class="btn-ghost" href="#services">View services</a>
+    </div>
+  </div>
+  <div class="mirror-wrap">
+    <svg class="mirror-svg" viewBox="0 0 400 440" preserveAspectRatio="xMidYMid slice">
+      <ellipse cx="200" cy="200" rx="130" ry="160" class="mirror-oval"/>
+      <circle cx="200" cy="30" r="5" class="mirror-bulb" style="animation-delay:0.9s"/>
+      <circle cx="270" cy="45" r="5" class="mirror-bulb" style="animation-delay:1.0s"/>
+      <circle cx="325" cy="90" r="5" class="mirror-bulb" style="animation-delay:1.1s"/>
+      <circle cx="355" cy="160" r="5" class="mirror-bulb" style="animation-delay:1.2s"/>
+      <circle cx="355" cy="240" r="5" class="mirror-bulb" style="animation-delay:1.3s"/>
+      <circle cx="325" cy="310" r="5" class="mirror-bulb" style="animation-delay:1.4s"/>
+      <circle cx="270" cy="355" r="5" class="mirror-bulb" style="animation-delay:1.5s"/>
+      <circle cx="200" cy="370" r="5" class="mirror-bulb" style="animation-delay:1.6s"/>
+      <circle cx="130" cy="355" r="5" class="mirror-bulb" style="animation-delay:1.7s"/>
+      <circle cx="75" cy="310" r="5" class="mirror-bulb" style="animation-delay:1.8s"/>
+      <circle cx="45" cy="240" r="5" class="mirror-bulb" style="animation-delay:1.9s"/>
+      <circle cx="45" cy="160" r="5" class="mirror-bulb" style="animation-delay:2.0s"/>
+      <circle cx="75" cy="90" r="5" class="mirror-bulb" style="animation-delay:2.1s"/>
+      <circle cx="130" cy="45" r="5" class="mirror-bulb" style="animation-delay:2.2s"/>
+    </svg>
+    <span class="mirror-label">Chair 3 — Colour Bar</span>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<section class="services" id="services">
+  <div class="services-head">
+    <h2>Services</h2>
+    <p>Every service starts with a five-minute consultation, no exceptions — so the cut or colour matches what you actually asked for.</p>
+  </div>
+  <div class="service-row">
+    <div>
+      <div class="service-name">Signature Cut</div>
+      <div class="service-desc">Consultation, wash, cut, and style finish</div>
+    </div>
+    <div class="service-price">₦15,000</div>
+  </div>
+  <div class="service-row">
+    <div>
+      <div class="service-name">Full Colour</div>
+      <div class="service-desc">Single-process colour with gloss treatment</div>
+    </div>
+    <div class="service-price">₦35,000</div>
+  </div>
+  <div class="service-row">
+    <div>
+      <div class="service-name">Balayage</div>
+      <div class="service-desc">Hand-painted highlights, toner, and blowout</div>
+    </div>
+    <div class="service-price">₦55,000</div>
+  </div>
+  <div class="service-row">
+    <div>
+      <div class="service-name">Bridal Trial</div>
+      <div class="service-desc">Full look trial with photos, ahead of the day</div>
+    </div>
+    <div class="service-price">₦25,000</div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <span class="num">01</span>
+      <h3>Trained colourists</h3>
+      <p>Every colourist on the floor has completed formal certification, not just in-salon shadowing.</p>
+    </div>
+    <div class="strip-item">
+      <span class="num">02</span>
+      <h3>Unhurried bookings</h3>
+      <p>We hold real time slots per service — your 2pm colour appointment doesn't get squeezed by a 1:30 running late.</p>
+    </div>
+    <div class="strip-item">
+      <span class="num">03</span>
+      <h3>Premium product only</h3>
+      <p>No in-house rebrands. What touches your hair is the same line you can buy off the shelf.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="book">
+  <h2>Ready for your next appointment?</h2>
+  <p>Send your preferred service and day — this week's chair availability comes back same day.</p>
+  <div class="hero-ctas" style="justify-content:center;">
+    <a class="btn-primary" href="https://wa.me/2340000000000" target="_blank" rel="noopener">Message on WhatsApp</a>
+    <a class="btn-ghost" href="mailto:book@studionoir.example">Email instead</a>
+  </div>
+</section>
+
+<footer>
+  Studio Noir — Wuse 2, Abuja. Sample site built by [Your Name] · studionoir.example
+</footer>
+
+</body>
+</html>
